@@ -1,0 +1,34 @@
+Note for further additions!
+
+Need to add a one/two tailed aspect to the T-Tests. Currently only have one tailed!
+- think I implemented this, added a new paramater "Tail" to which "one" or "two" can be used to change which sheet of data is being parsed
+
+
+NEED TO TEST THE MAX BOUND OF FCRIT VALUE
+Meaning I need to put in the largest number I can under infinity and see if the bounding is correct!
+reasoning: I had to change the code from the FCrit when using on the T-Table because the T-Table wasnt scanning the last few rows!!
+Added 1 instead of removing 1 to the .getLastRowNum and now it worked for T-Table.\
+
+
+Need a settings.json in appInit that loads and sets settings for specific if() checks
+eg: if (Setting.instaQuit) on quitButton { System Exit}
+	else { confirmationPopUp window}
+
+	
+need to add a new data check under t-test data checks under ParseData.FastParseT-Test
+if variables.getSize != 2, { means there are more than 2 columns of data! Must launch stats error page and say anova is appropriate
+
+need to add an if() check to make sure groups <= 10 for Tukey and Anova Parsing!!!
+
+
+Current error in launch: JFileChooser not displaying any files? Directories ok!
+Might need to switch JFileChooser under ImportData class to FileDialog, lets hope not
+
+Need to add an offline/online check in app init
+
+
+Data is currently cleared in all locations: 3x T-Test parsing + Anova parsing + Tukey parsing + DataParse
+DataClear is called in two locations: On "close" button on frontend.scrollpanepanels.AnalysisPage and on Statistical Test button entry under backend.homepage.StatButton
+
+
+Commented out line 195 on /backend/homepage/StatButton.enterStats so it doesnt try and clear data!
